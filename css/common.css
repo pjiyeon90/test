@@ -1,0 +1,352 @@
+/* 공통 스타일*/
+/* header와 footer에 사용되는 css, 공통적으로 사용되는 title, figure의 구성, paging, button등등 */
+
+/* header, footer,
+   텍스트, 색상, 효과, 버튼, 아이콘,
+   컨텐츠(카드형태, 표, form, 로딩, 팝업 등등) */
+
+    :root{
+        --color-point: #262D71;
+        --pc_width:1280px;
+    }
+
+
+   header{ position: fixed;
+    width:100%;
+    padding: 80px;
+    z-index: 100;
+    
+}
+   header >div{
+    max-width:var(--pc_width); /*max-width쓰면 1280이상일때는 고정, 이하일때는 반응형*/
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    color: white;
+}
+
+
+   header >div>nav{}
+   header >div>nav>ul{ display: flex;}
+   header >div>nav>ul>li{position: relative;}
+   header >div>nav>ul>li>div{
+        position: absolute;
+        left: 0px;
+        top: 100%;   /*30px 이렇게 임의로 주지 말고 top:100%를 주면 부모의 크기를 부모가 다 갖고 난 후 100인 시점 밑으로 나오게됨, top:50%;면 부모의 크기 50%에서 부터 시작됨 100%는 부모의 크기 100%인 전체박스 밑으로 나오게됨*/
+        width:100%;
+        text-align: center;
+        background-color: var(--color-point);
+        border-radius: 10px;
+        padding:10px;
+        
+   }
+   header >div>nav>ul>li>div>a{
+    display: block;
+   }
+   header >div>nav>ul>li>a{padding: 0 20px;
+    text-transform: uppercase;
+}
+ 
+   h2{text-align: center;}
+   .c-point{color:var(--color-point);
+}
+
+
+   /* active */
+
+   header >div>nav>ul>li>div{
+    opacity: 0;
+    transition: .5s;
+}
+   header >div>nav>ul>li:hover>div{
+    opacity: 1;
+   }
+   header >div>nav>ul>li:hover>a{
+     color: var(--color-point);
+    font-weight: 800; }
+
+     /*버튼*/
+    .btn{
+        padding: 15px 30px;
+        background-color: var(--color-point);
+        border-radius: 5px;
+        font-size: 1rem;
+        text-transform: uppercase;
+        margin-top: 10px;
+        pointer-events: fill; /*a태그의 효과를 넣고싶은 경우 pointer-events:fill을 넣는다.*/
+        display: inline-block;
+    }
+    
+    .btn:hover{
+        background-color: red;
+    }
+
+    /*title*/
+
+    .title{
+        margin-bottom: 50px;
+        text-align: center;
+    }
+    .title>h2{
+        text-transform: uppercase;
+    }
+    .title>p{ margin-top:10px; }
+    
+
+    /*헤더에 메뉴*/
+    .trigger {
+        display: none;
+    }
+   
+
+    /* 텍스트 생략 */
+    .t-s1{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .t-s2{
+        display: -webkit-box; /*크롬, 사파리 가능*/
+        -webkit-line-clamp: 3;     /*3줄까지만 나오고 나머지는 숨긴다. 세로 형태로*/
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+         /* text-overflow: ellipsis; 넘치는 부분은 ...으로 표현해줘라 태그인데 -webkit-box가 ...까지 처리해줌*/
+    }
+
+
+    /* 배경색 */
+    .bg-gray{
+        background-color: #e6e6e6;
+    }
+    .bg-dark{
+        background-color: #333333;
+        color:white;
+    }
+    .bg-dark h2{color: inherit;}
+
+
+
+    /* 정렬 */
+    .align-l{text-align: left;}
+    .align-c{text-align: center;}
+    .align-r{text-align: right;}
+
+
+    /* 여백*/
+    .m-t10{margin-top: 10px;}
+    .m-t20{margin-top: 20px;}
+    .m-t30{margin-top: 30px;}
+    .m-t50{margin-top: 50px;}
+
+    /*footer*/
+    footer{
+        width:100%;
+        padding: 80px;
+    }
+    footer>div{
+        max-width:var(--pc_width); /*max-width쓰면 1280이상일때는 고정, 이하일때는 반응형*/
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center; 
+        color: black;
+        font-weight: 600;
+        
+    }
+   
+    footer>div>address{
+        font-style: normal;
+    }
+    footer div p a{
+       padding: 0 6px;
+    }
+    footer div p a:hover{
+        color: red;
+    }
+
+
+
+
+    /* ====================================================================================================================================모바일(~767px) 작성자 : 박지연 ========================================================================================= */
+
+    @media (max-width: 767px){
+
+        header{ position: fixed;
+            width:100%;
+            padding: 20px;
+            z-index: 100;
+            
+        }
+           header >div{
+            max-width:var(--pc_width); /*max-width쓰면 1280이상일때는 고정, 이하일때는 반응형*/
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center; 
+            color: white;
+        }
+        
+        
+           header >div>nav{ display: none;}
+           header >div>nav>ul{ display: flex;}
+           header >div>nav>ul>li{position: relative;}
+           header >div>nav>ul>li>div{
+                position: absolute;
+                left: 0px;
+                top: 100%;   /*30px 이렇게 임의로 주지 말고 top:100%를 주면 부모의 크기를 부모가 다 갖고 난 후 100인 시점 밑으로 나오게됨, top:50%;면 부모의 크기 50%에서 부터 시작됨 100%는 부모의 크기 100%인 전체박스 밑으로 나오게됨*/
+                width:100%;
+                text-align: center;
+                background-color: var(--color-point);
+                border-radius: 10px;
+                padding:10px;
+                
+           }
+           header >div>nav>ul>li>div>a{
+            display: block;
+           }
+           header >div>nav>ul>li>a{padding: 0 20px;
+            text-transform: uppercase;
+        }
+         
+           h2{text-align: center;}
+           .c-point{color:var(--color-point);
+        }
+        .trigger{
+            display: block;
+            width: 40px;
+        }
+        .trigger > span{
+            display: block;
+            border-bottom: 2px solid #fff;
+            margin: 6px;
+        }
+    
+        
+           /* active */
+        
+           header >div>nav>ul>li>div{
+            opacity: 0;
+            transition: .5s;
+        }
+           header >div>nav>ul>li:hover>div{
+            opacity: 1;
+           }
+           header >div>nav>ul>li:hover>a{
+             color: var(--color-point);
+            font-weight: 800; }
+        
+             /*버튼*/
+            .btn{
+                font-size: 1rem;
+                padding: 16px 50px;
+            }
+            
+            .btn:hover{
+                background-color: red;
+            }
+        
+            /*title*/
+        
+            .title{
+                margin-bottom: 50px;
+                text-align: center;
+            }
+            .title>h2{
+                text-transform: uppercase;
+            }
+            .title>p{ margin-top:10px; }
+            
+        
+        
+            /* 텍스트 생략 */
+            .t-s1{
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .t-s2{
+                display: -webkit-box; /*크롬, 사파리 가능*/
+                -webkit-line-clamp: 3;     /*3줄까지만 나오고 나머지는 숨긴다. 세로 형태로*/
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                 /* text-overflow: ellipsis; 넘치는 부분은 ...으로 표현해줘라 태그인데 -webkit-box가 ...까지 처리해줌*/
+            }
+        
+        
+            /* 배경색 */
+            .bg-gray{
+                background-color: #e6e6e6;
+            }
+            .bg-dark{
+                background-color: #333333;
+                color:white;
+            }
+            .bg-dark h2{color: inherit;}
+        
+        
+        
+            /* 정렬 */
+            .align-l{text-align: left;}
+            .align-c{text-align: center;}
+            .align-r{text-align: right;}
+        
+        
+            /* 여백*/
+            .m-t10{margin-top: 10px;}
+            .m-t20{margin-top: 20px;}
+            .m-t30{margin-top: 30px;}
+            .m-t50{margin-top: 50px;}
+        
+            /*footer*/
+            footer{
+                width:100%;
+                padding: 30px;
+            }
+            footer>div{
+               flex-direction: column;
+            }
+           
+            footer>div>address{
+                font-style: normal;
+                order: 2;
+            }
+            footer>div>p:nth-last-child(1){
+                order: 3;
+                margin-top: 20px;
+            }
+            footer>div>p:nth-last-child(2){
+                order: 1; /*순서를 바꿔주는 order라는 명령은 반드시 플렉스일때만 가능하다.*/
+                margin-bottom: 20px;
+            }
+
+            footer div p a{
+               padding: 0 6px;
+            }
+            footer div p a:hover{
+                color: red;
+            }
+
+
+
+
+
+
+
+
+
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px){
+
+    }
+
+        /* ====================================================================================================================================태블릿(768px) 작성자: 박지연 ========================================================================================= */
+
+        @media (max-width: 767px){
+
+        }
+    
+        @media (min-width: 768px) and (max-width: 1024px){
+    
+        }
